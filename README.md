@@ -1,131 +1,73 @@
 ## Frequency- and SNR-Based Benchmarking of Wearable Respiration Sensors
-# Wearable Respiration Sensor Benchmarking (Arduino + MATLAB)
 
 ## Overview
-This repository documents and supports a benchmarking study comparing a lab-developed wearable breathing sensor against five commercial sensor modules. All sensors were mounted on a single wearable belt and recorded simultaneously under identical conditions using one Arduino to enable a fair comparison of respiration-related signal quality and consistency.
+This repository documents the **experimental setup and data acquisition workflow** used to benchmark a **lab-developed wearable breathing sensor** against **five industrial accelerometers** using a **single Arduino-based platform**. All sensors were recorded **simultaneously under identical conditions**, enabling a fair and controlled comparison of respiration-related signal quality.
 
-The workflow includes:
-- Arduino-side multi-sensor data acquisition (simultaneous logging)
-- MATLAB-side preprocessing and analysis (alignment, normalization, and metrics)
+While the analysis and benchmarking were performed in MATLAB, this repository intentionally includes **only the Arduino acquisition code** used to interface with each accelerometer. MATLAB scripts and raw data are excluded.
 
 ---
 
-## Motivation
-To expand our research, we evaluated the lab-developed breathing sensor against five commercial alternatives. Collecting all signals at the same time and under the same conditions reduces experimental bias and allows a direct comparison of:
-- consistency across devices
-- sensitivity to breathing motion
-- signal quality for respiration detection
+## Sensors Used
+The following industrial accelerometers were evaluated alongside the lab-developed breathing sensor:
+
+- **ADXL1002** – High-frequency, low-noise single-axis accelerometer  
+- **ADXL335** – Low-power, 3-axis analog accelerometer  
+- **ADXL345** – Digital 3-axis accelerometer (I²C/SPI)  
+- **ADXL362** – Ultra-low-power digital accelerometer  
+- **MPU6050** – 6-axis IMU (accelerometer + gyroscope)
+
+-Due to logic-level mismatches between the Arduino (5 V) and certain digital sensors (3.3 V), a logic level shifter was required for the ADXL345 and ADXL362 accelerometers. The remaining sensors were either analog devices or included onboard level shifting.
+
+-Each accelerometer has a dedicated Arduino sketch in this repository for individual testing and validation.
 
 ---
 
-## Hardware Setup
-
-### Sensors
-- Lab-developed wearable breathing sensor
-- Five commercial sensor modules (connected to the same Arduino)
-
-### Mounting
-- All sensors were mounted to a single wearable belt alongside the breathing sensor.
-- Data was collected simultaneously to keep conditions identical across all devices.
-
-### Wiring Notes (Important)
-- All sensor modules were connected to **one Arduino**.
-- **One** of the commercial sensor modules required a **logic level shifter** due to a logic-voltage mismatch (e.g., 3.3 V sensor with 5 V Arduino I/O).
-  - **Module requiring level shifting:** `<<REPLACE WITH SENSOR NAME/MODEL>>`
-  - **Bus/lines shifted (example):** SDA/SCL (I2C) or MOSI/MISO/SCK/CS (SPI) or a digital output pin
-
-> Note: I’m not naming the module here because it depends on your exact sensor list and wiring; add the sensor name once confirmed in your hardware notes.
+## Hardware Configuration
+- All accelerometers and the lab-developed breathing sensor were mounted on a **single wearable belt**
+- All signals were acquired using **one Arduino**, ensuring:
+  - identical motion conditions
+  - synchronized data capture
+  - consistent sensor placement
+- One sensor module (digital I/O) required a **logic level shifter** due to a voltage mismatch between the sensor and Arduino I/O levels
 
 ---
 
-## Data Collection
-- All sensors were sampled in the same session to ensure identical motion, placement, and timing conditions.
-- Arduino output was logged via Serial (or a serial logging tool) and saved to file for analysis.
+## Data Acquisition
+- Sensor data were collected simultaneously using the CoolTerm serial data acquisition application
+- All sensor outputs were streamed over serial communication and logged for offline analysis
+- Using a single acquisition platform ensured synchronized sampling and minimized timing offsets and environmental variability between sensors
 
 ---
 
-## Data Processing (MATLAB)
-All signals follow the same pipeline to ensure a fair comparison.
-
-### 1) Alignment / Resampling
-- Signals are aligned to a common time base.
-- If sensors have different sample rates, data is resampled to a shared rate (e.g., 100 Hz).
-
-### 2) Normalization
-Because different sensors output different units and ranges, normalization is applied before comparison:
+### MATLAB processing steps included:
+- Time alignment and resampling of all sensor signals
+- Because different sensors output different units and ranges, normalization is applied before comparison:
 - **Z-score normalization** (for analysis):  
   `z(t) = (x(t) − μ) / σ`
 - **Min–max normalization** (for visualization):  
   `x_norm(t) = (x(t) − x_min) / (x_max − x_min)`
+- Signal normalization to account for differing units and ranges
+- Time-domain and frequency-domain analysis
+- Comparison of respiration-related signal content
+- Evaluation of signal quality, sensitivity, and consistency across sensors
 
-### 3) Metrics (examples)
-The exact metrics depend on your analysis scripts, but commonly include:
-- respiration-band signal strength (time domain)
-- spectral content / PSD in the respiration band (frequency domain)
-- SNR-like measures to quantify breathing signal strength vs noise
-- consistency / repeatability across trials
 
 ---
 
-## Repository Structure
-```text
-wearable-respiration-sensor-benchmark/
-├─ arduino/
-│  ├─ sensor_1.ino
-│  ├─ sensor_2.ino
-│  ├─ sensor_3.ino
-│  ├─ sensor_4.ino
-│  ├─ sensor_5.ino
-│  └─ multi_sensor_logger.ino      # final combined sketch (recommended)
-├─ matlab/
-│  ├─ preprocess.m                 # alignment + filtering + normalization
-│  ├─ compute_psd.m                # frequency-domain analysis
-│  ├─ compute_metrics.m            # SNR/respiration metrics
-│  └─ run_benchmark.m              # main script
-├─ figures/
-│  └─ (plots exported from MATLAB)
-├─ data/                           # raw logs (excluded if confidential)
-│  └─ README_DATA.md               # expected format + column definitions
-└─ README.md
-How to Run
-Arduino (data acquisition)
-Wire all sensor modules to the Arduino (use the logic level shifter for the specified module).
+Design Notes + Image
+- Each Arduino sketch was developed and tested independently
+- Sensor selection spans analog and digital devices with varying noise floors and bandwidths
+- Raw experimental data and analysis scripts are excluded
 
-Upload the combined logging sketch (recommended: arduino/multi_sensor_logger.ino).
-
-Open Serial Monitor / serial logger and save the output to a file (CSV preferred).
-
-MATLAB (analysis)
-Place the recorded log file(s) in data/ (or wherever your scripts expect).
-
-Open MATLAB and set the current folder to matlab/.
-
-Run:
-
-matlab
-Copy code
-run_benchmark
-Export figures to figures/.
-
-What to Fill In (so this README is complete)
-Replace <<REPLACE WITH SENSOR NAME/MODEL>> with the actual module that required the logic level shifter.
-
-Add your actual data log format to data/README_DATA.md:
-
-column names
-
-units
-
-sampling rate
-
-which columns correspond to which sensor
+Final Product  
+![belt](./_figures/image (5).png)
 
 Author
 Masa Damdoum
-Electrical Engineering (Co-op), University of Windsor
+- Electrical Engineering (Co-op)
+- University of Windsor
 
 Disclaimer
-Raw experimental data may be subject to confidentiality constraints and may not be included in this repository.
+This repository is intended for academic and research documentation purposes. Raw experimental data and analysis scripts are not included.
 
-makefile
-Copy code
+
