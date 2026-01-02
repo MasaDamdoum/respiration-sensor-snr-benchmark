@@ -84,10 +84,10 @@ respiration-sensor-snr-benchmark/
 ```
 
 ## Design Notes
-Raw experimental data are intentionally excluded
-All analysis steps are modular and reusable
-The pipeline is designed to scale to additional sensors or subjects
-Methods are aligned with prior peer-reviewed respiration sensing studies
+- Raw experimental data are intentionally excluded
+- All analysis steps are modular and reusable
+- The pipeline is designed to scale to additional sensors or subjects
+- Methods are aligned with prior peer-reviewed respiration sensing studies
 
 
 ## Author
