@@ -92,7 +92,8 @@ This enclosure improved hardware robustness during testing and enabled repeatabl
 
 ## Final Product  
 
-![Wearable sensor setup](./_figures/FinalProduct.png)
+![Final Product](./_figures/Final%20Product.png)
+
 
 ---
 
