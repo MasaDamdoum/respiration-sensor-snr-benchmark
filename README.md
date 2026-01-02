@@ -87,9 +87,9 @@ respiration-sensor-snr-benchmark/
 
 
 ## Author
--Masa Damdoum
--Bachelor of Applied Science – Electrical Engineering (Co-op)
--University of Windsor
+Masa Damdoum
+- Bachelor of Applied Science – Electrical Engineering (Co-op)
+- University of Windsor
 
 ## Disclaimer
 This repository is intended for academic and research purposes. Raw experimental data may be subject to confidentiality constraints and are not included.
