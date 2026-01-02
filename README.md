@@ -54,15 +54,16 @@ The following industrial accelerometers were evaluated alongside the lab-develop
 
 ---
 
-Design Notes + Image
+## Design Notes 
 - Each Arduino sketch was developed and tested independently
 - Sensor selection spans analog and digital devices with varying noise floors and bandwidths
 - Raw experimental data and analysis scripts are excluded
 
-Final Product  
-![belt](./_figures/image (5).png)
+## Final Product  
 
-Author
+![Wearable sensor setup](./_figures/pic.png)
+
+## Author
 Masa Damdoum
 - Electrical Engineering (Co-op)
 - University of Windsor
