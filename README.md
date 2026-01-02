@@ -63,16 +63,22 @@ A custom snap-fit Arduino enclosure was designed to securely house the data acqu
 - Compact form factor suitable for wearable or benchtop use
 - Designed for quick assembly and disassembly during testing
 
-Iterative Development
+## Iterative Development
 Multiple design iterations were required to refine snap tolerances and achieve a tight, secure fit without excessive insertion force. Each iteration was evaluated for mechanical retention, ease of use, and print reliability.
 
-Fabrication Details
+## Fabrication Details
 - **CAD software:** FreeCAD  
 - **Slicer:** OrcaSlicer  
 - **3D printer:** Bambu Lab (FDM)  
 - **Material:** PLA  
 - **Nozzle diameter:** 0.4 mm  
-- **Layer height:** 0.2 mm  
+- **Layer height:** 0.2 mm
+
+## Final Print: 
+
+![3D Print Job 1](./_figures/3D%20Print%20Job%20%231.jpg)
+
+![3D Print Job 2](./_figures/3D%20Print%20Job%20%232.jpg)
 
 This enclosure improved hardware robustness during testing and enabled repeatable sensor experiments without exposed wiring or loose connections.
 
@@ -86,7 +92,7 @@ This enclosure improved hardware robustness during testing and enabled repeatabl
 
 ## Final Product  
 
-![Wearable sensor setup](./_figures/pic.png)
+![Wearable sensor setup](./_figures/FinalProduct.png)
 
 ---
 
