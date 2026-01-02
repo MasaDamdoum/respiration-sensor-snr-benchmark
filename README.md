@@ -76,10 +76,8 @@ Multiple design iterations were required to refine snap tolerances and achieve a
 
 ## Final Print: 
 
-<p float="left">
-  <img src="./_figures/3d_print_job_1.jpg" width="350" />
-  <img src="./_figures/3d_print_job_2.jpg" width="350" />
-</p>
+![3D Print Job 1](./_figures/3d_print_job_1.jpg)
+![3D Print Job 2](./_figures/3d_print_job_2.jpg)
 
 
 This enclosure improved hardware robustness during testing and enabled repeatable sensor experiments without exposed wiring or loose connections.
