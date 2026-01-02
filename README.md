@@ -37,13 +37,9 @@ All sensor signals undergo the same preprocessing and analysis workflow to ensur
 ### 2. Normalization
 Because sensors report different physical quantities (e.g., acceleration in g or m/s², spirometer volume):
 - **Z-score normalization** is used for statistical comparison  
-  \[
-  z(t) = \frac{x(t) - \mu}{\sigma}
-  \]
+ z(t) = (x(t) - μ) / σ
 - **Min–max normalization** is used for visualization  
-  \[
-  x_{norm}(t) = \frac{x(t) - x_{min}}{x_{max} - x_{min}}
-  \]
+  x_norm(t) = (x(t) - x_min) / (x_max - x_min)
 
 ---
 
