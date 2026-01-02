@@ -1,4 +1,4 @@
-
+## Benchmarking Wearable Respiration Sensors Using SNR and Frequency-Domain Analysis
 ## Overview
 This repository contains MATLAB-based analysis tools for benchmarking a **lab-developed wearable breathing sensor** against **five commercial inertial sensors**. The evaluation focuses on respiration detection performance by comparing all sensor outputs to a **medical-grade spirometer**, treated as the gold standard.
 
