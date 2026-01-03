@@ -1,9 +1,9 @@
 ## Frequency- and SNR-Based Benchmarking of Wearable Respiration Sensors
 
 ## Overview
-This repository documents the **experimental setup and data acquisition workflow** used to benchmark a **lab-developed wearable breathing sensor** against **five industrial accelerometers** using a **single Arduino-based platform**. All sensors were recorded **simultaneously under identical conditions**, enabling a fair and controlled comparison of respiration-related signal quality.
+This repository documents the experimental setup and data acquisition workflow used to benchmark a lab-developed wearable breathing sensor against five industrial accelerometers using a single Arduino-based platform. All sensors were recorded simultaneously under identical conditions, enabling a fair and controlled comparison of respiration-related signal quality.
 
-While the analysis and benchmarking were performed in MATLAB, this repository intentionally includes **only the Arduino acquisition code** used to interface with each accelerometer. MATLAB scripts and raw data are excluded.
+While the analysis and benchmarking were performed in MATLAB, this repository intentionally includes only the Arduino acquisition code used to interface with each accelerometer. MATLAB scripts and raw data are excluded.
 
 ---
 
@@ -24,11 +24,11 @@ The following industrial accelerometers were evaluated alongside the lab-develop
 
 ## Hardware Configuration
 - All accelerometers and the lab-developed breathing sensor were mounted on a **single wearable belt**
-- All signals were acquired using **one Arduino**, ensuring:
+- All signals were acquired using one Arduino, ensuring:
   - identical motion conditions
   - synchronized data capture
   - consistent sensor placement
-- One sensor module (digital I/O) required a **logic level shifter** due to a voltage mismatch between the sensor and Arduino I/O levels
+- One sensor module (digital I/O) required a logic level shifter due to a voltage mismatch between the sensor and Arduino I/O levels
 
 ---
 
