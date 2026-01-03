@@ -54,11 +54,12 @@ The following industrial accelerometers were evaluated alongside the lab-develop
 ## Signal Analysis Results
 Welch Power Spectral Density Plot:
 
-![Welch Power Spectral Density](./_figures/welch_psd.png)
+![Welch Power Spectral Density](./_figures/Welch%20Power%20Spectral%20Density%20%28pwelch%29.png)
 
 Box Plot:
 
-![Box Plot Comparison](./_figures/box_plot.png)
+![Box Plot Comparison](./_figures/Box%20plot.png)
+
 
 
 ---
