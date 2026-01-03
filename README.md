@@ -117,8 +117,6 @@ University of Windsor
 
 ---
 
----
-
 ## Disclaimer
 This repository is intended for academic and research documentation purposes. Raw experimental data and analysis scripts are not included.
 
