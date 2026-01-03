@@ -51,6 +51,16 @@ The following industrial accelerometers were evaluated alongside the lab-develop
 - Comparison of respiration-related signal content
 - Evaluation of signal quality, sensitivity, and consistency across sensors
 
+## Signal Analysis Results
+Welch Power Spectral Density Plot:
+
+![Welch Power Spectral Density](./_figures/welch_psd.png)
+
+Box Plot:
+
+![Box Plot Comparison](./_figures/box_plot.png)
+
+
 ---
 
 ## Snap-Fit Arduino Enclosure Design
