@@ -111,9 +111,11 @@ This enclosure improved hardware robustness during testing and enabled repeatabl
 ---
 
 ## Author
-Masa Damdoum
-Electrical Engineering (Co-op)
+Masa Damdoum  
+Electrical Engineering (Co-op)  
 University of Windsor
+
+---
 
 ---
 
